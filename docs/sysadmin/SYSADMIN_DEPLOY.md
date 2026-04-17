@@ -126,9 +126,11 @@ server {
 Notes:
 
 - If you only proxy `/zimbra/`, features like attachments and the remote-image proxy (`/service/image-proxy/...`) will not work.
-- The shim sets `ZM_AUTH_TOKEN` with `HttpOnly; SameSite=Lax`. When serving over HTTPS, ensure cookies are treated as secure:
-  - Preferred: add shim support to set `Secure` (future); OR
-  - Use nginx cookie rewriting (varies by nginx version/modules).
+- The shim sets `ZM_AUTH_TOKEN` with `HttpOnly; SameSite=Lax`.
+- When serving over HTTPS, set at least one of:
+  - `BRIDGE_COOKIE_SECURE=1`
+  - `BRIDGE_PUBLIC_BASE_URL=https://mail.example.com/`
+  so the cookie is issued with the `Secure` attribute.
 
 ## Keeping the bridge running (Docker restarts)
 
@@ -142,7 +144,7 @@ So `project-z-bridge-bridge` comes back automatically after Docker restarts.
 
 Note: restart policies only apply after the container is (re)created. If you already have a running bridge container from before this was added, recreate it once:
 
-- `docker compose down && docker compose up -d --build`
+- `./manage.sh restart`
 
 ## What happens to a logged-in browser tab if the bridge restarts?
 
@@ -191,9 +193,13 @@ This creates a tarball under `dist/` containing:
 On the target server:
 
 - unpack the tarball
-- `docker load < dist/*.image.tar.gz`
 - extract `zimbra.war` into `static/zimbra/`
 - `./manage.sh up-runtime`
+
+Notes:
+
+- `./manage.sh up-runtime` will automatically `docker load` the bundled runtime image if `dist/project-z-bridge-runtime.image.tar.gz` is present and the image is not already loaded.
+- You only need to run `docker load` manually if you want to pre-load the image yourself before using `manage.sh`.
 
 ## Notes
 
