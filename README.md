@@ -9,6 +9,8 @@
 > - **[Status](STATUS.md)** — current state of the project and what is working today.
 >
 > The rest of this page is a snapshot of the in-development doc index, preserved here for context. Treat it as a preview, not a usable checkout.
+>
+> Reference: why JMAP for Project - https://fosdem.org/2026/schedule/event/3JQKHF-jmap-for-everything/ 
 
 ---
 
