@@ -63,6 +63,8 @@ If you’re not sure where to start for a problem, use:
 ## High-value docs (common tasks)
 
 - **Deploy / operate**: [`sysadmin/SYSADMIN_DEPLOY.md`](sysadmin/SYSADMIN_DEPLOY.md)
+- **ZWC + Stalwart enhanced features**: [`sysadmin/SYSADMIN_ZWC_STALWART_ENHANCED_FEATURES.md`](sysadmin/SYSADMIN_ZWC_STALWART_ENHANCED_FEATURES.md)
+- **Rspamd admin training workflow**: [`sysadmin/SYSADMIN_RSPAMD_ANALYSIS_TRAINING.md`](sysadmin/SYSADMIN_RSPAMD_ANALYSIS_TRAINING.md)
 - **Operational log triage**: [`sysadmin/SYSADMIN_LOG_READING_GUIDE.md`](sysadmin/SYSADMIN_LOG_READING_GUIDE.md)
 - **Attachment-sort operator triage**: [`sysadmin/SYSADMIN_ATTACHMENT_SORT_TRIAGE.md`](sysadmin/SYSADMIN_ATTACHMENT_SORT_TRIAGE.md)
 - **Perf counter reference**: [`sysadmin/SYSADMIN_PERF_STATS_REFERENCE.md`](sysadmin/SYSADMIN_PERF_STATS_REFERENCE.md)
@@ -80,6 +82,7 @@ Feature deep-dives:
 
 - Mail sharing (internal): [`developer/SHARING_SHARED_FOLDERS.md`](developer/SHARING_SHARED_FOLDERS.md)
 - Filters (Sieve): [`developer/FILTERS_PLAN.md`](developer/FILTERS_PLAN.md)
+- Rspamd analysis/training: [`sysadmin/SYSADMIN_RSPAMD_ANALYSIS_TRAINING.md`](sysadmin/SYSADMIN_RSPAMD_ANALYSIS_TRAINING.md)
 - Out-of-Office / vacation (including per-recipient alias reply extension): [`developer/PREFERENCES_OUT_OF_OFFICE_PLAN.md`](developer/PREFERENCES_OUT_OF_OFFICE_PLAN.md)
 - Contacts: [`developer/CONTACTS_FIELD_MAPPING.md`](developer/CONTACTS_FIELD_MAPPING.md), [`developer/CONTACTS_SEARCH.md`](developer/CONTACTS_SEARCH.md), [`developer/CONTACTS_SHARING.md`](developer/CONTACTS_SHARING.md)
 - Calendar: [`developer/CALENDAR_INVITES.md`](developer/CALENDAR_INVITES.md), [`developer/CALENDAR_SCHEDULER.md`](developer/CALENDAR_SCHEDULER.md), [`developer/CALENDAR_ALARMS.md`](developer/CALENDAR_ALARMS.md)
@@ -106,7 +109,7 @@ These are still useful references, but are not required for day-to-day maintenan
     - `BRIDGE_SIEVE_BACKUP_MIN_INTERVAL_SECS` (throttle backup frequency during repeated saves).
     - `BRIDGE_FILTER_MODIFY_SYNC_DEBOUNCE_MS` (coalesce rapid filter edits before upstream sync).
 - Optional: set `BRIDGE_BRAND_*` env vars to replace the top-left ZWC banner logo/link (defaults to Stalwart).
-- Optional: override mini calendar delay via `BRIDGE_MINICAL_DELAY_MS` (defaults to `0`; ZWC default is `5000`).
+- Optional: override mini calendar delay via `BRIDGE_MINICAL_DELAY_MS` (defaults to `5000`; set `0` for immediate mini calendar creation).
 - Optional: delay global busy cursor/overlay via `BRIDGE_BUSY_OVERLAY_DELAY_MS` (defaults to `700`; set `0` for stock behavior).
 - Optional: enable push-driven hot-folder prewarm via `BRIDGE_PUSH_WARM_ENABLED` and tune with `BRIDGE_PUSH_HOT_MAX_QUERIES`, `BRIDGE_PUSH_PREWARM_LIMIT`, `BRIDGE_PUSH_PREWARM_MIN_INTERVAL_MS`, `BRIDGE_PUSH_NOOP_PREWARM_ENABLED`, and `BRIDGE_PUSH_NOOP_PREWARM_INTERVAL_MS`.
 - Optional: enable dumpster listing/restore via `BRIDGE_DUMPSTER_ENABLED` (`inDumpster` search + `recover` action path). Tune with `BRIDGE_DUMPSTER_API_BASE_URL` and `BRIDGE_DUMPSTER_PAGE_SIZE`; optional admin override auth is available via `BRIDGE_DUMPSTER_ADMIN_BEARER_TOKEN` or `BRIDGE_DUMPSTER_ADMIN_USERNAME`/`BRIDGE_DUMPSTER_ADMIN_PASSWORD`. Current limitation: restore destination picker is not fully honored yet (Stalwart undelete restores to Inbox).

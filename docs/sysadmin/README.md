@@ -9,6 +9,8 @@ Use explicit `SYSADMIN_*` filenames for operator-focused docs.
 Start here:
 
 - [`SYSADMIN_DEPLOYMENT_TOPOLOGY.md`](SYSADMIN_DEPLOYMENT_TOPOLOGY.md) — preferred production topology (edge -> bridge -> Stalwart, plus MX/network separation).
+- [`SYSADMIN_ZWC_STALWART_ENHANCED_FEATURES.md`](SYSADMIN_ZWC_STALWART_ENHANCED_FEATURES.md) — admin-facing inventory of bridge enhancements compared with stock ZWC + Zimbra.
+- [`SYSADMIN_RSPAMD_ANALYSIS_TRAINING.md`](SYSADMIN_RSPAMD_ANALYSIS_TRAINING.md) — operator training guide for Rspamd score hover, detailed analysis, and raw-message export workflows.
 - [`SYSADMIN_DEPLOY.md`](SYSADMIN_DEPLOY.md) — docker-compose dev + runtime deployment notes.
 - [`SYSADMIN_ENV_REFERENCE.md`](SYSADMIN_ENV_REFERENCE.md) — operator-facing guide to the main `.env` settings and where to tune them.
 - [`SYSADMIN_MANAGE_SH_COMMAND_REFERENCE.md`](SYSADMIN_MANAGE_SH_COMMAND_REFERENCE.md) — grouped command map for `./manage.sh` (what to run, when, prerequisites).

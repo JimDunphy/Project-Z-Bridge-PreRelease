@@ -53,6 +53,8 @@ Common local-development auth variables:
 
 - `BRIDGE_MINICAL_DELAY_MS`
   - Delay before showing the mini calendar.
+  - Default: `5000`.
+  - Set `0` for immediate creation.
 
 - `BRIDGE_BUSY_OVERLAY_DELAY_MS`
   - Delay before showing the global busy overlay/cursor.
