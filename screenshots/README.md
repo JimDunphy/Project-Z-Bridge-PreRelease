@@ -19,6 +19,9 @@ These copies are unredacted. Review and redact as needed before broader publicat
 - [Junk folder view](Mail/junk-folder.png)
 - [Mail view menu](Mail/view-menu.png)
 - [Message context menu](Mail/message-context-menu.png)
+- [Rspamd reading-pane analysis popup](Mail/rspamd-reading-pane-popup.png)
+- [Rspamd flag-column score tooltip](Mail/rspamd-flag-column-tooltip.png)
+- [Rspamd Save Original context menu](Mail/rspamd-save-original-context-menu.png)
 - [Search type menu](Mail/search-type-menu.png)
 - [Advanced search builder](Mail/advanced-search.png)
 - [Save search dialog](Mail/save-search-dialog.png)
@@ -45,7 +48,7 @@ These copies are unredacted. Review and redact as needed before broader publicat
 
 ## Preferences
 - [General settings](Preferences/general.png)
-- [Bridge Safety phishing and tag color options](Preferences/bridge-safety-options.png)
+- [Bridge Safety phishing, tag color, and Rspamd options](Preferences/bridge-safety-options.png)
 - [Accounts](Preferences/accounts.png)
 - [Mail settings](Preferences/mail.png)
 - [Filters page](Preferences/filters.png)
