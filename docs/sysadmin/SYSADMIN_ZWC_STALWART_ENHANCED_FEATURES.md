@@ -83,7 +83,8 @@ Project Z-Bridge maps ZWC filter behavior into Stalwart-compatible delivery-time
 Retention support bridges a ZWC UI feature that Stalwart does not expose in the same form:
 
 - Folder retention policies can be saved through ZWC.
-- Optional bridge sweeps can enforce purge rules.
+- Optional bridge sweeps can enforce purge rules for Junk, Trash, and custom user folders.
+- Protected system folders such as Inbox, Sent, and Drafts store/display retention settings but are skipped by purge enforcement.
 - Admins must still align this with Stalwart global cleanup settings.
 
 Retention reference:
@@ -116,4 +117,3 @@ When adding a new enhancement:
 1. Add a concise admin-facing entry here.
 2. Add operational training or runbook documentation under `docs/sysadmin/` if admins need to use or support it.
 3. Add deeper implementation notes to the developer enhancement tracker when the behavior changes ZWC internals or bridge architecture.
-

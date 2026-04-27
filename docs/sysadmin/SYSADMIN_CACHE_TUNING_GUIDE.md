@@ -5,6 +5,7 @@ This guide is for operators tuning bridge responsiveness vs upstream load.
 Use this with:
 - `docs/sysadmin/SYSADMIN_PERF_STATS_REFERENCE.md`
 - `docs/sysadmin/SYSADMIN_LOG_READING_GUIDE.md`
+- `docs/developer/PERFORMANCE_CACHE_AUDIT.md`
 
 ## Goals and Tradeoffs
 
@@ -46,6 +47,8 @@ These are the main defaults currently used by the shim:
   - Mailbox tree/count fetches are reused, while still refreshed often.
 - `BRIDGE_GETINFO_CACHE_SECS=86400`
   - `GetInfoRequest` is expensive and mostly stable for a user.
+- `BRIDGE_APPOINTMENT_SEARCH_CACHE_SECS=3600`
+  - Persists calendar appointment `SearchRequest` responses so background calendar bootstrap is fast after relogin/restart.
 - `BRIDGE_GETMSG_CACHE_SECS=45`
   - Short-lived message payload cache for rapid open/re-open.
 - `BRIDGE_GETMSG_PREFETCH_COUNT=24`
@@ -102,6 +105,10 @@ Admin recommendation:
 - Start with `BRIDGE_PUSH_HOT_MAX_QUERIES=4` and `BRIDGE_PUSH_NOOP_PREWARM_INTERVAL_MS=60000`.
 - Increase hot queries only if users routinely jump across many non-default folders and you have upstream capacity.
 
+NoOp foreground budget:
+- NoOp still performs notification-critical checks after the long-poll wait, but feed polling and retention sweeps run as background maintenance. In logs, `noop_work_ms` should mostly reflect mailbox/Inbox/calendar notification checks rather than feed import or retention purge cost.
+- Background maintenance logs as `NoOp background maintenance complete`. If it imports or destroys messages, it refreshes mailbox/GetInfo count caches for the next UI-visible update.
+
 ### Message-open acceleration
 
 - `BRIDGE_GETMSG_CACHE_SECS` (default `45`)
@@ -127,9 +134,10 @@ Admin recommendation:
   - The delayed prefetch only fires if the same folder/query is still the active hot query.
   - Lower values warm the next page sooner but can steal time from the first visible page.
 
-- `BRIDGE_CONV_SCROLL_METADATA_PREFETCH_PAGES` (default `2`, clamp `1..3`)
+- `BRIDGE_CONV_SCROLL_METADATA_PREFETCH_PAGES` (default `3`, clamp `1..3`)
   - Number of pages ahead to schedule for metadata prefetch.
   - Higher values can improve scroll smoothness but increase background work.
+  - First-page conversation opens warm continuation pages using the continuation page size (`limit=50`) that ZWC requests while scrolling.
 
 - `BRIDGE_CONV_SCROLL_METADATA_PREFETCH_MIN_INTERVAL_MS` (default `5000`, clamp `500..120000`)
   - Per session/query/page cooldown for scroll metadata prefetch scheduling.
@@ -146,6 +154,11 @@ Admin recommendation:
 - `BRIDGE_CONTACTS_CF_CACHE_SECS` (default `3600`)
 - `BRIDGE_MAILBOX_CACHE_SECS` (default `300`)
 - `BRIDGE_GETINFO_CACHE_SECS` (default `86400`)
+- `BRIDGE_APPOINTMENT_SEARCH_CACHE_SECS` (default `3600`)
+
+Operational note:
+- Bridge-owned mail actions such as Spam/Not Spam, move, trash/delete, and read-state updates should not normally force a cold `GetInfoRequest` on the next login. The bridge patches cached folder counts when it already fetched live mailbox counts for the action notification. In logs, look for `GetInfo cache folder counts patched`; a follow-up relogin should show `GetInfoRequest ... cache_hit=true` with `upstream_jmap_calls=0`.
+- Background calendar appointment searches can otherwise be multi-second on large calendars after restart. The persisted appointment search cache serves the prior response immediately and logs `SearchRequest appointment served from cache`; stale entries refresh asynchronously.
 
 ### UI feel and long-poll behavior
 
@@ -240,6 +253,7 @@ Expected effect:
   - `SearchRequest conversation served from cache ... stale_revalidate=true`
 - Background refresh:
   - `SearchRequest stale cache revalidate started`
+  - `mailboxes cache refreshed from upstream` for stale folder-list revalidation that needs trusted folder counts.
 - Periodic keep-warm:
   - `NoOp prewarm: warming hot search queries`
 

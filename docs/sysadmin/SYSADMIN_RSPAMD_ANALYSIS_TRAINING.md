@@ -80,6 +80,8 @@ Multiple messages:
 4. The browser downloads `original-messages-N.tar`.
 5. Extract the tar file and use the contained `.eml` files for external tooling.
 
+The bridge bounds this direct export path to 500 selected messages and 512 MiB of raw message source per tar request. For larger corpus work, export in smaller batches.
+
 Example:
 
 ```sh
@@ -112,6 +114,7 @@ rspamd-training/
 
 - `.eml` files contain full original message source, including headers and MIME body parts. Treat them as sensitive data.
 - Tar exports intentionally contain only `.eml` files. There is no JSON sidecar or bridge metadata file.
+- Tar exports are generated in memory and are intentionally capped at 500 messages / 512 MiB per request.
 - The compact tooltip depends on `X-Spam-Status`.
 - The detailed reading-pane badge depends on `X-Spamd-Result`.
 - In conversation rows, the bridge uses the first message id available for the row. If you need a specific message inside a conversation, open or search at message granularity before exporting.
@@ -133,3 +136,4 @@ If `Save Original` or `Save Originals as Tar` does not download:
 2. Try a hard refresh and repeat the right-click action.
 3. Check browser download settings.
 4. Check bridge logs for `rest message source download` or `rest message source tar download`.
+5. If a tar export returns `413 Payload Too Large`, split the selection into smaller batches.

@@ -18,6 +18,7 @@ Start here:
 - [`SYSADMIN_ATTACHMENT_SORT_TRIAGE.md`](SYSADMIN_ATTACHMENT_SORT_TRIAGE.md) — quick runbook for paperclip/attachment-sort regressions (log signatures + tuning).
 - [`SYSADMIN_PERF_STATS_REFERENCE.md`](SYSADMIN_PERF_STATS_REFERENCE.md) — field-by-field reference for `./manage.sh perf-stats-*` outputs and interpretation.
 - [`SYSADMIN_CACHE_TUNING_GUIDE.md`](SYSADMIN_CACHE_TUNING_GUIDE.md) — cache/push/prewarm tuning defaults, tradeoffs, and scenario playbooks.
+- [`../developer/PERFORMANCE_CACHE_AUDIT.md`](../developer/PERFORMANCE_CACHE_AUDIT.md) — developer-facing audit of what is cached today, what is regenerated today, and which decisions should be settled before deeper cache changes.
 - [`SYSADMIN_BUNDLE_EXPORT_IMPORT.md`](SYSADMIN_BUNDLE_EXPORT_IMPORT.md) — export/import “environment bundles” for moving a working setup between machines/users.
 - [`SYSADMIN_PRODUCTION_HARDENING.md`](SYSADMIN_PRODUCTION_HARDENING.md) — recommended reverse proxy headers, TLS, and other hardening.
 - [`SYSADMIN_EXTERNAL_HARDENING.md`](SYSADMIN_EXTERNAL_HARDENING.md) — rate limiting, abuse resistance, fail2ban/WAF integration.
