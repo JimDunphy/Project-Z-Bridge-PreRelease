@@ -26,7 +26,7 @@ If a document is listed in an index or referenced for follow-up reading, it shou
 Use paths relative to the document doing the linking:
 
 - good: `[developer/README.md](developer/README.md)` from `docs/README.md`
-- good: `[ARCHITECTURE.md](ARCHITECTURE.md)` from `docs/developer/README.md`
+- good: [`ARCHITECTURE.md`](developer/ARCHITECTURE.md) from `docs/developer/README.md`
 - avoid plain backtick path listings when the intent is navigation
 
 ## How to use the docs (types)
@@ -58,6 +58,7 @@ If you’re not sure where to start for a problem, use:
 - **Login performance**: [`developer/PERFORMANCE_LOGIN.md`](developer/PERFORMANCE_LOGIN.md)
 - **Attachment sort debugging/perf**: [`developer/PERFORMANCE_ATTACHMENT_SORT_DEBUGGING.md`](developer/PERFORMANCE_ATTACHMENT_SORT_DEBUGGING.md)
 - **Implemented/stubbed API surface**: [`developer/API_REFERENCE.md`](developer/API_REFERENCE.md)
+- **Testing paths and middleware interop**: [`developer/TESTING_AND_MIDDLEWARE_INTEROP.md`](developer/TESTING_AND_MIDDLEWARE_INTEROP.md)
 - **Future completion roadmap**: [`developer/PRODUCT_FUTURE_COMPLETION_PLAN.md`](developer/PRODUCT_FUTURE_COMPLETION_PLAN.md)
 - **Architecture / trust boundaries**: [`developer/ARCHITECTURE.md`](developer/ARCHITECTURE.md)
 - **Mail rendering security design (iframe + CSP)**: [`security/SECURITY_IFRAME_STRICT_CSP_DESIGN.md`](security/SECURITY_IFRAME_STRICT_CSP_DESIGN.md)

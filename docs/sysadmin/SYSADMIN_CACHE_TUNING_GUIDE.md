@@ -36,7 +36,7 @@ These are the main defaults currently used by the shim:
 - `BRIDGE_PUSH_PREWARM_LIMIT=100`
   - Matches common conversation list page size and avoids underfetch.
 - `BRIDGE_PUSH_PREWARM_MIN_INTERVAL_MS=5000`
-  - Prevents push bursts from causing repeated warm passes.
+  - Prevents push bursts from causing repeated warm passes. NoOp fallback warming has its own interval and does not consume this Push throttle.
 - `BRIDGE_PUSH_NOOP_PREWARM_ENABLED=1`
   - Keeps hot queries warm even when push is quiet or unavailable.
 - `BRIDGE_PUSH_NOOP_PREWARM_INTERVAL_MS=300000`
@@ -68,8 +68,9 @@ These are the main defaults currently used by the shim:
   - Higher = faster repeat folder clicks, more chance of stale brief view.
 
 - `BRIDGE_SEARCH_CACHE_STALE_REVALIDATE` (default `1`)
-  - `1` serves stale folder cache immediately and refreshes in background.
-  - `0` forces synchronous refresh when stale.
+  - `1` serves eligible simple-folder cache immediately and refreshes in background.
+  - This includes stale cache and small folder-count mismatches such as new mail arriving since the last login.
+  - `0` disables the background revalidate trigger; explicit internal prefetches still request fresh data.
 
 - `BRIDGE_SEARCH_CACHE_STALE_REVALIDATE_MIN_INTERVAL_MS` (default `2000`, clamp `200..120000`)
   - Lower = more frequent background refreshes.
@@ -83,6 +84,14 @@ These are the main defaults currently used by the shim:
 - `BRIDGE_PUSH_PREWARM_MIN_INTERVAL_MS` (default `5000`, clamp `500..120000`)
 - `BRIDGE_PUSH_NOOP_PREWARM_ENABLED` (default `1`)
 - `BRIDGE_PUSH_NOOP_PREWARM_INTERVAL_MS` (default `300000`, clamp `30000..3600000`)
+
+Verification logs:
+- JMAP Push is connected when logs show `JMAP Push event source connected` with `source="jmap_push"`.
+- JMAP Push actually received a mail/count event when logs show `JMAP Push event received` with `source="jmap_push"` and `mail_change=true`.
+- JMAP Push caused cache warming when logs show `hot search prewarm started` with `source="jmap_push"` and `trigger="mail_change"`.
+- NoOp/poll discovered new mail when logs show `NoOpRequest: inbox changed` with `source="noop"`.
+- NoOp fallback caused cache warming when logs show `NoOp hot search prewarm scheduled`, followed by `hot search prewarm started` with `source="noop"`.
+- NoOp fallback and JMAP Push use separate warm gates; a periodic NoOp warm should not make a later real `mail_change=true` Push event skip its warm pass.
 
 Operator note:
 - Lower `BRIDGE_PUSH_NOOP_PREWARM_INTERVAL_MS` if first click after idle is slow.
@@ -158,6 +167,7 @@ NoOp foreground budget:
 
 Operational note:
 - Bridge-owned mail actions such as Spam/Not Spam, move, trash/delete, and read-state updates should not normally force a cold `GetInfoRequest` on the next login. The bridge patches cached folder counts when it already fetched live mailbox counts for the action notification. In logs, look for `GetInfo cache folder counts patched`; a follow-up relogin should show `GetInfoRequest ... cache_hit=true` with `upstream_jmap_calls=0`.
+- New mail is batch-tolerant for simple folder views. A warm `in:inbox`/`in:junk` cache can be shown immediately even when counts changed, with `count_mismatch_revalidate=true` logging the background refresh path.
 - Background calendar appointment searches can otherwise be multi-second on large calendars after restart. The persisted appointment search cache serves the prior response immediately and logs `SearchRequest appointment served from cache`; stale entries refresh asynchronously.
 
 ### UI feel and long-poll behavior
