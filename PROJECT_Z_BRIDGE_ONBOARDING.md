@@ -5,11 +5,6 @@ technical stakeholders. It explains what Project Z-Bridge is, why the browser
 still looks like classic Zimbra Web Client, how runtime injection works, and how
 the bridge is designed to feel faster than ZWC backed by Zimbra mailboxd.
 
-For implementation details, start with
-[developer/ARCHITECTURE.md](developer/ARCHITECTURE.md),
-[developer/PERFORMANCE_CACHE_AUDIT.md](developer/PERFORMANCE_CACHE_AUDIT.md),
-and [developer/JMAP_USAGE_AUDIT_AND_PLAN.md](developer/JMAP_USAGE_AUDIT_AND_PLAN.md).
-
 ## One Sentence Version
 
 Project Z-Bridge lets the classic Zimbra Web Client run against Stalwart by
@@ -313,7 +308,11 @@ These are normal constraints for a compatibility bridge. They are also why the
 project keeps separate documentation for architecture, cache behavior, SOAP
 coverage, and regression testing.
 
-## Where To Read Next
+## Deeper Docs In The Full Project
+
+The full in-development tree contains deeper technical docs for architecture,
+performance, security, SOAP/XML coverage, testing, and operations. Some of these
+documents may not be included in the prerelease preview.
 
 - [developer/ARCHITECTURE.md](developer/ARCHITECTURE.md) for the technical
   architecture map.
