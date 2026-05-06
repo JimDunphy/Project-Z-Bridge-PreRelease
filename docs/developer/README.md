@@ -28,6 +28,7 @@ If a document is listed here or referenced for further reading, it should be a c
 
 Start here:
 
+- [`../PROJECT_Z_BRIDGE_ONBOARDING.md`](../PROJECT_Z_BRIDGE_ONBOARDING.md) — high-level bridge explanation for management, product, GUI, and new technical stakeholders.
 - [`ARCHITECTURE.md`](ARCHITECTURE.md) — how the shim is put together (request flows, state, trust boundaries).
 - [`API_REFERENCE.md`](API_REFERENCE.md) — HTTP routes + SOAP methods implemented/stubbed.
 - [`SOAP_COMPATIBILITY_MATRIX.md`](SOAP_COMPATIBILITY_MATRIX.md) — source-audited SOAP method matrix, SOAP XML caveats, batch coverage, and third-party middleware/MUA evaluation notes.

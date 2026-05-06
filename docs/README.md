@@ -4,8 +4,9 @@ Rust “shim” that translates the classic Zimbra web client `/service/soap` AP
 
 ## Documentation index
 
-Start with these three “entry points” (by audience):
+Start with these “entry points” (by audience):
 
+- Project onboarding: [`PROJECT_Z_BRIDGE_ONBOARDING.md`](PROJECT_Z_BRIDGE_ONBOARDING.md)
 - Developer docs: [`developer/README.md`](developer/README.md)
 - Sysadmin docs: [`sysadmin/README.md`](sysadmin/README.md)
 - Public-facing notes: [`public/README.md`](public/README.md)
@@ -46,6 +47,7 @@ If you’re not sure where to start for a problem, use:
 
 ## High-value docs (common tasks)
 
+- **Project onboarding overview**: [`PROJECT_Z_BRIDGE_ONBOARDING.md`](PROJECT_Z_BRIDGE_ONBOARDING.md)
 - **Deploy / operate**: [`sysadmin/SYSADMIN_DEPLOY.md`](sysadmin/SYSADMIN_DEPLOY.md)
 - **ZWC + Stalwart enhanced features**: [`sysadmin/SYSADMIN_ZWC_STALWART_ENHANCED_FEATURES.md`](sysadmin/SYSADMIN_ZWC_STALWART_ENHANCED_FEATURES.md)
 - **Rspamd admin training workflow**: [`sysadmin/SYSADMIN_RSPAMD_ANALYSIS_TRAINING.md`](sysadmin/SYSADMIN_RSPAMD_ANALYSIS_TRAINING.md)

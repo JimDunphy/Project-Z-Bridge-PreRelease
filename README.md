@@ -4,6 +4,7 @@
 >
 > **Start here:**
 >
+> - **Read this first: [Project Z-Bridge Onboarding Overview](PROJECT_Z_BRIDGE_ONBOARDING.md)** — plain-English orientation for management, product, GUI, and new technical readers before using the deeper docs.
 > - **[Executive Summary](SYSADMIN_EXECUTIVE_SUMMARY.md)** — what Z-Bridge is, current capabilities, security model, migration story, and strategic value.
 > - **[UI Screenshots](screenshots/README.md)** — a visual tour of the classic ZWC experience running on a Stalwart backend (Mail, Calendar, Contacts, Folders, Tags, Preferences, AI Organizer).
 > - **[Status](STATUS.md)** — current state of the project and what is working today.
@@ -20,8 +21,9 @@ Rust “shim” that translates the classic Zimbra web client `/service/soap` AP
 
 ## Documentation index
 
-Start with these three “entry points” (by audience):
+Start with these “entry points” (by audience):
 
+- Project onboarding: [`PROJECT_Z_BRIDGE_ONBOARDING.md`](PROJECT_Z_BRIDGE_ONBOARDING.md)
 - Developer docs: [`developer/README.md`](docs/developer/README.md)
 - Sysadmin docs: [`sysadmin/README.md`](docs/sysadmin/README.md)
 - Public-facing notes: [`public/README.md`](docs/public/README.md)
@@ -62,6 +64,7 @@ If you’re not sure where to start for a problem, use:
 
 ## High-value docs (common tasks)
 
+- **Project onboarding overview**: [`PROJECT_Z_BRIDGE_ONBOARDING.md`](PROJECT_Z_BRIDGE_ONBOARDING.md)
 - **Deploy / operate**: [`sysadmin/SYSADMIN_DEPLOY.md`](docs/sysadmin/SYSADMIN_DEPLOY.md)
 - **ZWC + Stalwart enhanced features**: [`sysadmin/SYSADMIN_ZWC_STALWART_ENHANCED_FEATURES.md`](docs/sysadmin/SYSADMIN_ZWC_STALWART_ENHANCED_FEATURES.md)
 - **Rspamd admin training workflow**: [`sysadmin/SYSADMIN_RSPAMD_ANALYSIS_TRAINING.md`](docs/sysadmin/SYSADMIN_RSPAMD_ANALYSIS_TRAINING.md)
