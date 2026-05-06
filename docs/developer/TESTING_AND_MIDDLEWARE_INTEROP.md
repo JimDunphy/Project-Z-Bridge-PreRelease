@@ -114,6 +114,7 @@ curl -sS http://127.0.0.1:7777/service/soap \
 For the current implemented surface, use:
 
 - [`API_REFERENCE.md`](API_REFERENCE.md)
+- [`SOAP_COMPATIBILITY_MATRIX.md`](SOAP_COMPATIBILITY_MATRIX.md)
 - [`API_STUBS.md`](API_STUBS.md)
 
 ## Playwright UI Regression
@@ -205,6 +206,9 @@ Expect to validate method by method:
 - contacts/calendar/folder/preference methods as needed
 - `/home/*` export/download flows
 - `/service/upload`
+
+Start with [`SOAP_COMPATIBILITY_MATRIX.md`](SOAP_COMPATIBILITY_MATRIX.md) because it calls out
+top-level support, batch-dispatch gaps, SOAP XML caveats, and stubbed compatibility responses.
 
 This is the best fit.
 

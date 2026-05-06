@@ -30,6 +30,7 @@ Start here:
 
 - [`ARCHITECTURE.md`](ARCHITECTURE.md) — how the shim is put together (request flows, state, trust boundaries).
 - [`API_REFERENCE.md`](API_REFERENCE.md) — HTTP routes + SOAP methods implemented/stubbed.
+- [`SOAP_COMPATIBILITY_MATRIX.md`](SOAP_COMPATIBILITY_MATRIX.md) — source-audited SOAP method matrix, SOAP XML caveats, batch coverage, and third-party middleware/MUA evaluation notes.
 - [`ARCHITECTURE_MODULE_MAP.md`](ARCHITECTURE_MODULE_MAP.md) — where key behaviors live in the codebase.
 - [`DEV_DEBUGGING.md`](DEV_DEBUGGING.md) — practical debugging techniques (DevTools, logs, cold/warm cache).
 - [`DEV_SCREENSHOT_CAPTURE_GUIDE.md`](DEV_SCREENSHOT_CAPTURE_GUIDE.md) — workflow and expectations for public/admin UI screenshots (full-context captures, hover states, archive-to-repo copy flow, overwrite rules).

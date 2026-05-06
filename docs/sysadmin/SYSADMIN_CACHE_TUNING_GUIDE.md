@@ -76,6 +76,12 @@ These are the main defaults currently used by the shim:
   - Lower = more frequent background refreshes.
   - Higher = less refresh churn.
 
+Bridge-owned `Spam` / `Not Spam` on collapsed conversations:
+- When folder/search caches are warm, the bridge can return the action immediately after one read-only thread lookup and finish the upstream JMAP move in the background.
+- The fast path is guarded. If the bridge cannot prove the exact selected thread, source rows, or mailbox count projection, it falls back to the normal synchronous move.
+- Post-move cache revalidation is delayed until after the upstream move finishes so the bridge does not refresh Inbox/Junk from old server state.
+- Verification logs are `ConvActionRequest optimistic spam returned` and `ConvActionRequest optimistic spam background action completed`.
+
 ### Push and hot-folder prewarm
 
 - `BRIDGE_PUSH_WARM_ENABLED` (default `1`)
@@ -167,6 +173,7 @@ NoOp foreground budget:
 
 Operational note:
 - Bridge-owned mail actions such as Spam/Not Spam, move, trash/delete, and read-state updates should not normally force a cold `GetInfoRequest` on the next login. The bridge patches cached folder counts when it already fetched live mailbox counts for the action notification. In logs, look for `GetInfo cache folder counts patched`; a follow-up relogin should show `GetInfoRequest ... cache_hit=true` with `upstream_jmap_calls=0`.
+- Collapsed-conversation Spam/Not Spam can also patch the active conversation list and folder counts optimistically, then complete the upstream move in the background. If the action touches a thread shape the bridge cannot verify exactly, synchronous behavior is expected and safer.
 - New mail is batch-tolerant for simple folder views. A warm `in:inbox`/`in:junk` cache can be shown immediately even when counts changed, with `count_mismatch_revalidate=true` logging the background refresh path.
 - Background calendar appointment searches can otherwise be multi-second on large calendars after restart. The persisted appointment search cache serves the prior response immediately and logs `SearchRequest appointment served from cache`; stale entries refresh asynchronously.
 
