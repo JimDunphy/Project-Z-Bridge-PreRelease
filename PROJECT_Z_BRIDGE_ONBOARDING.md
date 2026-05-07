@@ -24,7 +24,7 @@ behavior. The goal is to preserve the working ZWC user experience while moving
 mail, calendar, contacts, filtering, and related state onto a faster and simpler
 Stalwart-backed architecture.
 
-## Plain-English View
+## Simple View
 
 The simplest way to describe the system is:
 
@@ -40,11 +40,11 @@ Project Z-Bridge
 Stalwart through JMAP and related APIs
 ```
 
-In plain terms, the user still opens the familiar Zimbra-style web client. The
+At a high level, the user still opens the familiar Zimbra-style web client. The
 bridge sits behind that web client and makes Stalwart look enough like Zimbra
 mailboxd for the UI to keep working.
 
-## Plain-English FAQ
+## Reader FAQ
 
 ### What changes for users?
 
@@ -252,6 +252,7 @@ large front-end fork. Examples include:
 
 - Rspamd score hover behavior in the message list.
 - Save-original actions for one or more selected messages.
+- Sorting by tags for users who organize mail around labels and workflows.
 - Bridge Safety preference controls.
 - Safer message rendering and external-image handling.
 - Reduced busy-overlay behavior when cached state can answer immediately.

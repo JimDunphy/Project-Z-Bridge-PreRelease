@@ -4,7 +4,7 @@
 >
 > **Start here:**
 >
-> - **Read this first: [Project Z-Bridge Onboarding Overview](PROJECT_Z_BRIDGE_ONBOARDING.md)** — plain-English orientation for management, product, GUI, and new technical readers before using the deeper docs.
+> - **Read this first: [Project Z-Bridge Onboarding Overview](PROJECT_Z_BRIDGE_ONBOARDING.md)** — high-level orientation for management, product, GUI, and new technical readers before using the deeper docs.
 > - **[Executive Summary](SYSADMIN_EXECUTIVE_SUMMARY.md)** — what Z-Bridge is, current capabilities, security model, migration story, and strategic value.
 > - **[UI Screenshots](screenshots/README.md)** — a visual tour of the classic ZWC experience running on a Stalwart backend (Mail, Calendar, Contacts, Folders, Tags, Preferences, AI Organizer).
 > - **[Status](STATUS.md)** — current state of the project and what is working today.
