@@ -1,0 +1,198 @@
+> **Pre-Release Preview**
+>
+> Project Z-Bridge has not been publicly released yet. This repository is a placeholder that will host the full source tree and documentation when the project ships. Many of the links below reference files that are **not** included in this preview and will not resolve — they reflect the layout of the in-development repository.
+>
+> **Start here:**
+>
+> - **Read this first: [Project Z-Bridge Onboarding Overview](PROJECT_Z_BRIDGE_ONBOARDING.md)** — high-level orientation for management, product, GUI, and new technical readers before using the deeper docs.
+> - **[Executive Summary](SYSADMIN_EXECUTIVE_SUMMARY.md)** — what Z-Bridge is, current capabilities, security model, migration story, and strategic value.
+> - **[UI Screenshots](screenshots/README.md)** — a visual tour of the classic ZWC experience running on a Stalwart backend (Mail, Calendar, Contacts, Folders, Tags, Preferences, AI Organizer).
+> - **[Status](STATUS.md)** — current state of the project and what is working today.
+>
+> The rest of this page is a snapshot of the in-development doc index, preserved here for context. Treat it as a preview, not a usable checkout.
+>
+> Reference: why JMAP for Project - https://fosdem.org/2026/schedule/event/3JQKHF-jmap-for-everything/ 
+
+---
+
+# Project Z-Bridge
+
+Status: current documentation index and navigation guide. Last reviewed:
+2026-05-16.
+
+Rust “shim” that translates the classic Zimbra web client `/service/soap` API into JMAP calls for Stalwart Mail Server.
+
+## Documentation index
+
+Start with these “entry points” (by audience):
+
+- Project onboarding: [`PROJECT_Z_BRIDGE_ONBOARDING.md`](PROJECT_Z_BRIDGE_ONBOARDING.md)
+- Developer docs: [`developer/README.md`](docs/developer/README.md)
+- Sysadmin docs: [`sysadmin/README.md`](docs/sysadmin/README.md)
+- Public-facing notes: [`public/README.md`](docs/public/README.md)
+
+Security docs:
+
+- Security/audit docs: [`security/README.md`](docs/security/README.md)
+
+Project trackers:
+
+- Documentation audit / cleanup: [`DOCUMENTATION_AUDIT.md`](docs/DOCUMENTATION_AUDIT.md)
+- Live bugs and pending verification: [`BUGS.md`](docs/BUGS.md)
+- Deferred gaps / future debt: [`FUTURE_GAPS.md`](docs/FUTURE_GAPS.md)
+- Resolved bug archive / debugging memory: [`BUGS_RESOLVED.md`](docs/BUGS_RESOLVED.md)
+- Current status / handoff notes: [`STATUS.md`](STATUS.md)
+- Detailed handoff archive: [`STATUS_DETAILED_HANDOFF_ARCHIVE.md`](docs/STATUS_DETAILED_HANDOFF_ARCHIVE.md)
+
+## Cross-reference rule
+
+If a document is listed in an index or referenced for follow-up reading, it should be a clickable Markdown link.
+
+Use paths relative to the document doing the linking:
+
+- good: `[developer/README.md](docs/developer/README.md)` from `docs/README.md`
+- good: [`ARCHITECTURE.md`](docs/developer/ARCHITECTURE.md) from `docs/developer/README.md`
+- avoid plain backtick path listings when the intent is navigation
+
+## How to use the docs (types)
+
+The docs in this repo fall into a few common types:
+
+- **Reference**: stable “what exists” documentation (API routes/methods, module map).
+- **Plan**: design notes for future work (kept as current as practical, but not always implemented yet).
+- **Postmortem / fix notes**: what broke, why, and how it was fixed (helpful when regressions return).
+- **Debugging memory**: notes kept mainly so humans and LLM assistants do not
+  repeat a prior debugging mistake. These are useful, but are not automatically
+  current source-of-truth docs.
+- **Audit**: security and threat-model notes.
+- **Historical**: early explorations or one-time agent snapshots (useful context, but not required day-to-day).
+
+If you’re not sure where to start for a problem, use:
+
+- [`developer/DEV_DEBUGGING.md`](docs/developer/DEV_DEBUGGING.md)
+- [`developer/DEV_WORKDIR.md`](docs/developer/DEV_WORKDIR.md) (what caches exist and what to delete first)
+
+## High-value docs (common tasks)
+
+- **Project onboarding overview**: [`PROJECT_Z_BRIDGE_ONBOARDING.md`](PROJECT_Z_BRIDGE_ONBOARDING.md)
+- **Deploy / operate**: [`sysadmin/SYSADMIN_DEPLOY.md`](docs/sysadmin/SYSADMIN_DEPLOY.md)
+- **ZWC + Stalwart enhanced features**: [`sysadmin/SYSADMIN_ZWC_STALWART_ENHANCED_FEATURES.md`](docs/sysadmin/SYSADMIN_ZWC_STALWART_ENHANCED_FEATURES.md)
+- **Rspamd admin training workflow**: [`sysadmin/SYSADMIN_RSPAMD_ANALYSIS_TRAINING.md`](docs/sysadmin/SYSADMIN_RSPAMD_ANALYSIS_TRAINING.md)
+- **Operational log triage**: [`sysadmin/SYSADMIN_LOG_READING_GUIDE.md`](docs/sysadmin/SYSADMIN_LOG_READING_GUIDE.md)
+- **Attachment-sort operator triage**: [`sysadmin/SYSADMIN_ATTACHMENT_SORT_TRIAGE.md`](docs/sysadmin/SYSADMIN_ATTACHMENT_SORT_TRIAGE.md)
+- **Perf counter reference**: [`sysadmin/SYSADMIN_PERF_STATS_REFERENCE.md`](docs/sysadmin/SYSADMIN_PERF_STATS_REFERENCE.md)
+- **Cache/performance tuning**: [`sysadmin/SYSADMIN_CACHE_TUNING_GUIDE.md`](docs/sysadmin/SYSADMIN_CACHE_TUNING_GUIDE.md)
+- **Reverse proxy / TLS / hardening**: [`sysadmin/SYSADMIN_PRODUCTION_HARDENING.md`](docs/sysadmin/SYSADMIN_PRODUCTION_HARDENING.md)
+- **ZWC asset version bumps**: [`sysadmin/SYSADMIN_WEBCLIENT_EXTRACT.md`](docs/sysadmin/SYSADMIN_WEBCLIENT_EXTRACT.md)
+- **Publishing sanitized trees**: [`developer/DEV_PUBLISHING.md`](docs/developer/DEV_PUBLISHING.md)
+- **Login performance**: [`developer/PERFORMANCE_LOGIN.md`](docs/developer/PERFORMANCE_LOGIN.md)
+- **Cache/performance developer audit**: [`developer/PERFORMANCE_CACHE_AUDIT.md`](docs/developer/PERFORMANCE_CACHE_AUDIT.md)
+- **Attachment sort debugging/perf**: [`developer/PERFORMANCE_ATTACHMENT_SORT_DEBUGGING.md`](docs/developer/PERFORMANCE_ATTACHMENT_SORT_DEBUGGING.md)
+- **Implemented/stubbed API surface**: [`developer/API_REFERENCE.md`](docs/developer/API_REFERENCE.md)
+- **Testing paths and middleware interop**: [`developer/TESTING_AND_MIDDLEWARE_INTEROP.md`](docs/developer/TESTING_AND_MIDDLEWARE_INTEROP.md)
+- **Future completion roadmap**: [`developer/PRODUCT_FUTURE_COMPLETION_PLAN.md`](docs/developer/PRODUCT_FUTURE_COMPLETION_PLAN.md)
+- **Architecture / trust boundaries**: [`developer/ARCHITECTURE.md`](docs/developer/ARCHITECTURE.md)
+- **ZWC SOAP lifecycle**: [`developer/ARCHITECTURE_ZWC_SOAP_LIFECYCLE.md`](docs/developer/ARCHITECTURE_ZWC_SOAP_LIFECYCLE.md)
+- **Mail rendering security design (iframe + CSP)**: [`security/SECURITY_IFRAME_STRICT_CSP_DESIGN.md`](docs/security/SECURITY_IFRAME_STRICT_CSP_DESIGN.md)
+
+Feature deep-dives:
+
+- Mail sharing (internal): [`developer/SHARING_SHARED_FOLDERS.md`](docs/developer/SHARING_SHARED_FOLDERS.md)
+- Filters (Sieve): [`developer/FILTERS_PLAN.md`](docs/developer/FILTERS_PLAN.md)
+- Rspamd analysis/training: [`sysadmin/SYSADMIN_RSPAMD_ANALYSIS_TRAINING.md`](docs/sysadmin/SYSADMIN_RSPAMD_ANALYSIS_TRAINING.md)
+- Out-of-Office / vacation (including per-recipient alias reply extension): [`developer/PREFERENCES_OUT_OF_OFFICE_PLAN.md`](docs/developer/PREFERENCES_OUT_OF_OFFICE_PLAN.md)
+- Contacts: [`developer/CONTACTS_FIELD_MAPPING.md`](docs/developer/CONTACTS_FIELD_MAPPING.md), [`developer/CONTACTS_SEARCH.md`](docs/developer/CONTACTS_SEARCH.md), [`developer/CONTACTS_SHARING.md`](docs/developer/CONTACTS_SHARING.md)
+- Calendar: [`developer/CALENDAR_INVITES.md`](docs/developer/CALENDAR_INVITES.md), [`developer/CALENDAR_SCHEDULER.md`](docs/developer/CALENDAR_SCHEDULER.md), [`developer/CALENDAR_ALARMS.md`](docs/developer/CALENDAR_ALARMS.md)
+- RSS feeds: [`developer/RSS_FEEDS.md`](docs/developer/RSS_FEEDS.md)
+- Future Tasks and Briefcase designs: [`developer/TASKS_DESIGN.md`](docs/developer/TASKS_DESIGN.md), [`developer/BRIEFCASE_DESIGN.md`](docs/developer/BRIEFCASE_DESIGN.md)
+
+## Archived / Historical Docs
+
+These are still useful references, but are not required for day-to-day maintenance:
+
+- [`archive/README.md`](docs/archive/README.md) (archive rules and current-reference pointers)
+- [`archive/ARCHITECTURE_DESIGN_HISTORICAL.md`](docs/archive/ARCHITECTURE_DESIGN_HISTORICAL.md) (early technical design; historical)
+- [`archive/DEV_CODEX_CONTEXT.md`](docs/archive/DEV_CODEX_CONTEXT.md) (agent snapshot; historical)
+- [`archive/DependencyAnalysis.md`](docs/archive/DependencyAnalysis.md) (one-off analysis; historical)
+
+Additional optional background that could move later:
+
+- [`WhyUseRust.md`](docs/WhyUseRust.md) (background / positioning, not a current implementation reference)
+
+## Dev workflow
+
+- Configure port via `BRIDGE_PORT` (defaults to `7777`).
+- Optional: configure default timezone via `BRIDGE_TIMEZONE` (e.g. `America/Los_Angeles`).
+- Optional: configure instant-notify wait time via `BRIDGE_NOOP_WAIT_SECS` (defaults to `30`).
+- Optional: set `BRIDGE_DATA_DIR` to persist shim-side UI metadata via the `BridgeStore` (default: a JSON `FileStore` under `../.dev/data` in docker-compose dev). This is **not stateless**: a horizontally scaled deployment must use a shared backend (shared volume/Redis/SQL) or move that metadata upstream where feasible. See [`developer/ARCHITECTURE_STATELESSNESS_PLAN.md`](docs/developer/ARCHITECTURE_STATELESSNESS_PLAN.md).
+- Filters (Sieve): in docker-compose dev, `BRIDGE_SIEVE_ACTIVATE` defaults to `0` (model-only; does not change Stalwart’s active delivery script). Set `BRIDGE_SIEVE_ACTIVATE=1` to compile+validate+activate delivery-time filters on save (see [`developer/FILTERS_PLAN.md`](docs/developer/FILTERS_PLAN.md) and [`developer/FILTERS_SIEVE_BACKUPS.md`](docs/developer/FILTERS_SIEVE_BACKUPS.md)).
+  - For large rule sets and frequent reorder edits, tune:
+    - `BRIDGE_FILTER_ADDRESS_BOOKS_CACHE_SECS` (cache Contacts/My Frequent Emails expansion).
+    - `BRIDGE_SIEVE_BACKUP_MIN_INTERVAL_SECS` (throttle backup frequency during repeated saves).
+    - `BRIDGE_FILTER_MODIFY_SYNC_DEBOUNCE_MS` (coalesce rapid filter edits before upstream sync).
+- Optional: set `BRIDGE_BRAND_*` env vars to replace the top-left ZWC banner logo/link (defaults to Stalwart).
+- Optional: override mini calendar delay via `BRIDGE_MINICAL_DELAY_MS` (defaults to `5000`; set `0` for immediate mini calendar creation).
+- Optional: delay global busy cursor/overlay via `BRIDGE_BUSY_OVERLAY_DELAY_MS` (defaults to `700`; set `0` for stock behavior).
+- Optional: enable push-driven hot-folder prewarm via `BRIDGE_PUSH_WARM_ENABLED` and tune with `BRIDGE_PUSH_HOT_MAX_QUERIES`, `BRIDGE_PUSH_PREWARM_LIMIT`, `BRIDGE_PUSH_PREWARM_MIN_INTERVAL_MS`, `BRIDGE_PUSH_NOOP_PREWARM_ENABLED`, and `BRIDGE_PUSH_NOOP_PREWARM_INTERVAL_MS`.
+- Optional: enable dumpster listing/restore via `BRIDGE_DUMPSTER_ENABLED` (`inDumpster` search + `recover` action path). Tune with `BRIDGE_DUMPSTER_API_BASE_URL` and `BRIDGE_DUMPSTER_PAGE_SIZE`; optional admin override auth is available via `BRIDGE_DUMPSTER_ADMIN_BEARER_TOKEN` or `BRIDGE_DUMPSTER_ADMIN_USERNAME`/`BRIDGE_DUMPSTER_ADMIN_PASSWORD`. Current limitation: restore destination picker is not fully honored yet (Stalwart undelete restores to Inbox).
+- Optional: tune folder-search cache lifetime via `BRIDGE_CONVERSATION_CACHE_SECS` (set `0` to disable).
+- Optional: enable stale-while-revalidate for simple folder clicks via `BRIDGE_SEARCH_CACHE_STALE_REVALIDATE` and `BRIDGE_SEARCH_CACHE_STALE_REVALIDATE_MIN_INTERVAL_MS`.
+- Optional: tune message-open acceleration via `BRIDGE_GETMSG_CACHE_SECS`, `BRIDGE_GETMSG_CACHE_MAX_ENTRIES`, `BRIDGE_GETMSG_PREFETCH_COUNT`, and `BRIDGE_GETMSG_PREFETCH_MAX_BODY_BYTES`.
+- Optional: tune single-message conversation expansion caching via `BRIDGE_SEARCH_CONV_SEED_CACHE_SECS` and `BRIDGE_SEARCH_CONV_SEED_CACHE_MAX_ENTRIES`.
+- For operator-level tuning guidance and scenario playbooks, see [`sysadmin/SYSADMIN_CACHE_TUNING_GUIDE.md`](docs/sysadmin/SYSADMIN_CACHE_TUNING_GUIDE.md).
+- Optional: persist ZWC themes per user via `ModifyPrefsRequest` (`zimbraPrefSkin`); set `BRIDGE_DEFAULT_SKIN` to change the default.
+- Optional: enable best-effort CSP via `BRIDGE_CSP_MODE`/`BRIDGE_CSP`; use `BRIDGE_CSP_MODE=log` + `BRIDGE_CSP_REPORT_URI=/zimbra/csp-report` (proxy-safe default) to collect violation reports in the shim logs.
+- Use `./manage.sh` to build/run/test via Docker.
+
+## Quick start
+
+- Put `zimbra.war` (classic web client build) in the repo root.
+  - If you don't already have it, you can build the classic webclient WAR from open-source sources.
+    The simplest current documented path is `./manage.sh webclient-build`, which downloads the latest supported `zimbra.war` release artifact from `DockerZimbraRHEL8`.
+    If you need a specific release, use `./manage.sh webclient-build --version 10.1.16`.
+    If you want to build your own WAR manually, use `DockerZimbraRHEL8` (`https://github.com/example/DockerZimbraRHEL8`) with `./docker.sh --build-war 10.1`.
+- Extract it: `./manage.sh webclient-extract` (writes to `static/zimbra/`, gitignored)
+  - If you are swapping to a newer ZWC version and something regresses, see [`sysadmin/SYSADMIN_WEBCLIENT_EXTRACT.md`](docs/sysadmin/SYSADMIN_WEBCLIENT_EXTRACT.md) for the known failure modes and first checks.
+- Copy `.env.example` → `.env` and set at least `STALWART_BASE_URL`.
+- `./manage.sh build`
+- `./manage.sh up` (publishes `127.0.0.1:${BRIDGE_PORT:-7777}` -> container `:7777`)
+- `./manage.sh shell` (no published ports)
+
+- Open: `http://127.0.0.1:${BRIDGE_PORT:-7777}/zimbra/`
+- Login with the same credentials you use for Stalwart (see `.env`).
+
+Note: `/zimbra/` is the current (compatibility-first) mount point for the ZWC UI. A future enhancement will allow configuring the mount point (example: `/mail/`) via env var; see [`developer/ARCHITECTURE_CONTEXT_PATH_PLAN.md`](docs/developer/ARCHITECTURE_CONTEXT_PATH_PLAN.md).
+
+Note: ZWC assets (`zimbra.war` / `static/zimbra/`) are intentionally not redistributed by this repo; see [`sysadmin/SYSADMIN_ZIMBRA_TRADEMARK_AND_LICENSING.md`](docs/sysadmin/SYSADMIN_ZIMBRA_TRADEMARK_AND_LICENSING.md).
+
+Endpoints: `GET /healthz`, `POST /service/soap`, `GET /zimbra/*`
+
+## Upstream (Stalwart)
+
+- For the UI, you only need `STALWART_BASE_URL` set; the login screen uses the username/password you type.
+- `STALWART_USERNAME` / `STALWART_PASSWORD` are used by dev helpers (`./manage.sh probe`, `./manage.sh share-probe`, `./manage.sh filters-smoke`, `cargo run --bin soap_smoke`).
+
+## `manage.sh` commands
+
+Use `./manage.sh help` for the raw CLI usage text.
+
+For the maintained, grouped command reference (including prerequisites, when-to-use guidance, and workflow recipes), use:
+
+- [`sysadmin/SYSADMIN_MANAGE_SH_COMMAND_REFERENCE.md`](docs/sysadmin/SYSADMIN_MANAGE_SH_COMMAND_REFERENCE.md)
+
+## Notes
+
+- The shim implements enough of classic ZWC to boot and show Mail:
+  - SOAP: `AuthRequest`, `GetInfoRequest`, `BatchRequest` (JSON + SOAP XML), `GetFolderRequest`, `SearchRequest` (JMAP-backed), `GetMsgRequest` (JMAP-backed), plus a few startup stubs (`GetMailboxMetadataRequest`, `DiscoverRightsRequest`, `/home/*`).
+- Shared mail folders (internal-only): shared mailboxes discovered via Stalwart mailbox ACLs (`Mailbox.shareWith`) are exposed as ZWC mountpoints; see [`developer/SHARING_SHARED_FOLDERS.md`](docs/developer/SHARING_SHARED_FOLDERS.md).
+- Local artifacts are intentionally not committed: `zimbra.war`, `static/zimbra/`, `.env`, and `.dev/` are gitignored.
+
+Known live issues are tracked in [`BUGS.md`](docs/BUGS.md). Deferred gaps live in
+[`FUTURE_GAPS.md`](docs/FUTURE_GAPS.md), and resolved incident memory lives in
+[`BUGS_RESOLVED.md`](docs/BUGS_RESOLVED.md).
+
+Bridge-side enhancements beyond stock ZWC are documented in [`developer/PRODUCT_ENHANCEMENTS.md`](docs/developer/PRODUCT_ENHANCEMENTS.md).
+
+## Migration tooling (early)
+
+- `smmailbox/smmailbox` — local CLI wrapper around `imapsync` + helpers for exporting Zimbra tag metadata and mapping it to IMAP keywords. See [`../smmailbox/docs/SMMAILBOX_QUICKSTART.md`](smmailbox/docs/SMMAILBOX_QUICKSTART.md).
