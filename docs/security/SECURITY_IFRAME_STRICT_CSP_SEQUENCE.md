@@ -1,7 +1,7 @@
 # SECURITY: Iframe + Strict CSP Sequence (One-Page)
 
 Date: 2026-02-27  
-Status: Quick reference for debugging and onboarding  
+Reference: quick sequence for debugging and onboarding  
 Related: [`SECURITY_IFRAME_STRICT_CSP_DESIGN.md`](SECURITY_IFRAME_STRICT_CSP_DESIGN.md)
 
 ## Scope

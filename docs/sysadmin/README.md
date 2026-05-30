@@ -1,7 +1,6 @@
 # Sysadmin Docs
 
-Status: current operator documentation index. Re-audit when sysadmin docs are
-added, archived, or reclassified.
+Last reviewed: 2026-05-16.
 
 This directory is for **operators** deploying Project Z-Bridge.
 
@@ -18,7 +17,7 @@ Use explicit `SYSADMIN_*` filenames for operator-focused docs.
 - [`SYSADMIN_LOG_READING_GUIDE.md`](SYSADMIN_LOG_READING_GUIDE.md) — how to read bridge logs (`soap method complete`, NoOp, cache and filter lines) and triage incidents.
 - [`SYSADMIN_PRODUCTION_HARDENING.md`](SYSADMIN_PRODUCTION_HARDENING.md) — recommended reverse proxy headers, TLS, and other hardening.
 - [`SYSADMIN_EXTERNAL_HARDENING.md`](SYSADMIN_EXTERNAL_HARDENING.md) — rate limiting, abuse resistance, fail2ban/WAF integration; current edge guidance plus clearly marked planned shim knobs.
-- [`SYSADMIN_SECURITY_HARDENING_SUMMARY.md`](SYSADMIN_SECURITY_HARDENING_SUMMARY.md) — short operator-facing security positioning summary; not a complete threat model or certification.
+- [`SYSADMIN_SECURITY_HARDENING_SUMMARY.md`](SYSADMIN_SECURITY_HARDENING_SUMMARY.md) — short operator-facing security hardening overview.
 - [`SYSADMIN_WEBCLIENT_EXTRACT.md`](SYSADMIN_WEBCLIENT_EXTRACT.md) — extracting `zimbra.war` into `static/zimbra/` and handling version bumps.
 - [`SYSADMIN_ACCOUNT_SECURITY.md`](SYSADMIN_ACCOUNT_SECURITY.md) — password changes, 2FA, app passwords (Stalwart semantics and impact).
 - [`SYSADMIN_ZWC_STALWART_ENHANCED_FEATURES.md`](SYSADMIN_ZWC_STALWART_ENHANCED_FEATURES.md) — admin-facing inventory of bridge enhancements compared with stock ZWC + Zimbra.
@@ -35,7 +34,7 @@ Use explicit `SYSADMIN_*` filenames for operator-focused docs.
 
 ## Plans And Background
 
-- [`SYSADMIN_EXECUTIVE_SUMMARY.md`](SYSADMIN_EXECUTIVE_SUMMARY.md) — leadership/product positioning summary; re-audit before external sharing.
+- [`SYSADMIN_EXECUTIVE_SUMMARY.md`](SYSADMIN_EXECUTIVE_SUMMARY.md) — leadership/product positioning summary.
 - [`SYSADMIN_OBSERVABILITY_PLAN.md`](SYSADMIN_OBSERVABILITY_PLAN.md) — phased plan for growing log/perf operator docs and runbooks.
 - [`SYSADMIN_SECURITY_ROADMAP.md`](SYSADMIN_SECURITY_ROADMAP.md) — phased operator-facing security roadmap; companion developer/security implementation worklist is [`../security/SECURITY_IMPLEMENTATION_PHASES.md`](../security/SECURITY_IMPLEMENTATION_PHASES.md).
 - [`../developer/PERFORMANCE_CACHE_AUDIT.md`](../developer/PERFORMANCE_CACHE_AUDIT.md) — developer-facing audit of what is cached today, what is regenerated today, and which decisions should be settled before deeper cache changes.

@@ -1,11 +1,7 @@
 # UI Screenshots
 
-Status: screenshot inventory for public/dev documentation. Review and redact
-individual images before broader publication.
-
-Expanded interface screenshots for documentation, demos, and GitHub pages.
-
-These copies are unredacted. Review and redact as needed before broader publication.
+Expanded interface screenshots for documentation, demos, and GitHub Pages.
+Review any new or updated screenshots before publishing.
 
 ## Login
 - [Login page](Login/login.png)
@@ -71,6 +67,7 @@ These copies are unredacted. Review and redact as needed before broader publicat
 - [Notifications](Preferences/notifications.png)
 - [Import / Export](Preferences/import-export.png)
 - [Shortcuts](Preferences/shortcuts.png)
+- [Extensions](Preferences/extensions.png)
 
 ## Tags
 - [Tags overview](Tags/overview.png)

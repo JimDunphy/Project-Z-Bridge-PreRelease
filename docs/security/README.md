@@ -1,7 +1,6 @@
 # Security Docs
 
-Status: current security documentation index. Re-audit when security docs are
-added, archived, or reclassified.
+Last reviewed: 2026-05-16.
 
 This directory contains Project Z Bridge security architecture, audits,
 hardening plans, and security-focused validation guides.

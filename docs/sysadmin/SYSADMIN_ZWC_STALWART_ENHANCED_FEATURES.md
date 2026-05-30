@@ -4,9 +4,8 @@ Project Z-Bridge keeps the classic Zimbra Web Client (ZWC) user experience while
 
 This document tracks admin-facing enhancements that are available in Project Z-Bridge and are not simply stock ZWC talking to stock Zimbra `mailboxd`.
 
-Status: current admin-facing feature inventory. It is intentionally higher
-level than the maintainer implementation notes and should be updated whenever a
-bridge-only behavior is added, removed, or made operator-configurable.
+Last reviewed: 2026-05-16. This is an admin-facing feature inventory, written
+at a higher level than the maintainer implementation notes.
 
 For deeper maintainer notes, see [`../developer/PRODUCT_ENHANCEMENTS.md`](../developer/PRODUCT_ENHANCEMENTS.md).
 

@@ -1,7 +1,6 @@
 # Project Z-Bridge
 
-Status: current documentation index and navigation guide. Last reviewed:
-2026-05-16.
+Last reviewed: 2026-05-16.
 
 Rust “shim” that translates the classic Zimbra web client `/service/soap` API into JMAP calls for Stalwart Mail Server.
 

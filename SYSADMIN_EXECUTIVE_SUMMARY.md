@@ -1,16 +1,8 @@
 # Project Z-Bridge: Executive Summary
 
-Status: executive/product positioning summary, not a compatibility matrix,
-security certification, legal review, or launch checklist. Re-audit against
-[`../STATUS.md`](../STATUS.md), [`../BUGS.md`](../BUGS.md),
-[`../developer/API_REFERENCE.md`](../developer/API_REFERENCE.md), and
-[`../developer/SOAP_COMPATIBILITY_MATRIX.md`](../developer/SOAP_COMPATIBILITY_MATRIX.md)
-before sharing externally.
-
 **Strategic Infrastructure Modernization for the Zimbra Ecosystem**
 
 Updated: 2026-04-07
-Disposition reviewed: 2026-05-16 during documentation audit.
 
 Project Z-Bridge modernizes legacy email infrastructure **without disrupting end-user workflow**. It is a **Backend-for-Frontend (BFF)** compatibility layer that allows the classic **Zimbra Web Client (ZWC)** interface to run on top of a **Stalwart Mail Server** backend (JMAP/IMAP/SMTP), by translating ZWC’s `/service/soap` calls into standards-based operations.
 

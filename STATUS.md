@@ -1,6 +1,6 @@
 # Project Z-Bridge — Status / Handoff
 
-Status: current handoff snapshot. Last condensed: 2026-05-16.
+Last condensed: 2026-05-16.
 
 Project Z-Bridge runs the classic Zimbra Web Client (ZWC) against Stalwart by
 serving ZWC assets and translating Zimbra-shaped `/service/soap` and REST calls
@@ -8,7 +8,7 @@ into Stalwart/JMAP-backed behavior.
 
 For the prior dense handoff snapshot, use
 [`STATUS_DETAILED_HANDOFF_ARCHIVE.md`](STATUS_DETAILED_HANDOFF_ARCHIVE.md). That
-archive is debugging memory, not the current source of truth.
+archive preserves historical debugging context.
 
 ## Quick Run
 
@@ -33,8 +33,8 @@ Runtime image:
   mail, folders, tags, contacts, calendar, compose/send, preferences, filters,
   internal sharing, import/export, Rspamd analysis, retention, and selected
   bridge-only enhancements.
-- The bridge is compatibility-first for classic ZWC. It is not a full Zimbra
-  server and should not be described as a complete `mailboxd` replacement.
+- The bridge is compatibility-first for classic ZWC and focuses on the
+  user-facing `mailboxd` behavior needed by the web client.
 - The authoritative SOAP method list is source-audited by
   `./manage.sh soap-docs-check`.
 - The operator and developer docs now distinguish current references, future

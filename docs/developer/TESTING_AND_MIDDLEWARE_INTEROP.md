@@ -1,7 +1,6 @@
 # Testing and Middleware Interoperability
 
-Status: current test/interoperability reference. Re-audit after route coverage,
-test harness, middleware-facing behavior, or public compatibility claims change.
+Last reviewed: 2026-05-29.
 
 This document explains how Project Z-Bridge is tested and what those tests imply for teams that already have middleware built around Zimbra.
 
@@ -53,7 +52,7 @@ Use this path for:
 - Header parsing.
 - Cache-key and cache-update algorithms.
 
-Do not use this path as proof that the running bridge has the new behavior. If the browser or an external client will call the bridge over HTTP, restart the bridge before validating that path.
+Use this path for code-level confidence. If the browser or an external client will call the bridge over HTTP, restart the bridge before validating that path.
 
 ## Smoke Binaries
 
@@ -119,6 +118,19 @@ For the current implemented surface, use:
 - [`API_REFERENCE.md`](API_REFERENCE.md)
 - [`SOAP_COMPATIBILITY_MATRIX.md`](SOAP_COMPATIBILITY_MATRIX.md)
 - [`API_STUBS.md`](API_STUBS.md)
+
+## SOAP Request Shape Guardrail
+
+Zimbra-compatible clients can express the same user action with different SOAP fields. Classic ZWC, VNCmail, middleware, and direct tests may not send identical payloads even when the visible operation is "open this folder" or "search this list".
+
+When a handler translates a SOAP request into a cached or JMAP-backed operation:
+
+- Normalize every field that affects result scope before cache lookup or cache storage.
+- Include the normalized scope in the cache key, or deliberately mark the path not cacheable.
+- Test equivalent request shapes, not only the shape emitted by the browser session used during development.
+- If two clients can share a bridge user/session cache, verify they cannot poison each other's cache entries by omitting a field another client supplies.
+
+Example: mail `SearchRequest` can scope a folder with `query="in:junk"` or with request folder id `l=4`. The bridge normalizes `l=4` to a logical `in:junk` scope before JMAP filtering, cache lookup, hot-query warming, and cache storage. That prevents an empty-query Inbox response from being reused for Junk or another folder.
 
 ## Playwright UI Regression
 
@@ -274,6 +286,7 @@ Then build a focused test lane:
 2. Add Playwright only when browser behavior matters.
 3. Add Rust unit tests only for bridge-side transforms or compatibility logic added for that middleware.
 4. Add a row to [`REGRESSION_COVERAGE_MATRIX.md`](REGRESSION_COVERAGE_MATRIX.md) for any real regression found during validation.
+5. Capture alternate request shapes for the same action when the client provides them, especially cache-sensitive fields such as folder ids, query terms, sort, pagination, and shared-account identifiers.
 
 ## Known Differences From Zimbra `mailboxd`
 

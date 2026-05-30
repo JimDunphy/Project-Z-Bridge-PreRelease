@@ -1,7 +1,6 @@
 # Recommended Deployment Topology
 
-Status: current operator topology reference. Re-audit after deployment model,
-network trust-boundary, reverse-proxy, or Stalwart exposure guidance changes.
+Last reviewed: 2026-05-16.
 
 This document describes the **preferred production topology** for Project Z-Bridge.
 

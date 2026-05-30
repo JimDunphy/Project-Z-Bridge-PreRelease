@@ -1,7 +1,7 @@
 # SECURITY: Why Iframe Isolation Was Required for Strict CSP
 
 Date: 2026-04-17
-Status: Rationale / design-decision reference
+Reference: rationale and design decisions
 Owner: Bridge/Webclient
 
 Related reading:

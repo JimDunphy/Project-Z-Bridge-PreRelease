@@ -1,7 +1,6 @@
 # Environment Variable Reference
 
-Status: current operator reference. Last `.env.example` coverage audit:
-2026-05-16 via `./manage.sh docs-audit`.
+Last reviewed: 2026-05-16.
 
 This document is the operator-facing guide to the main `.env` settings used by Project Z-Bridge.
 

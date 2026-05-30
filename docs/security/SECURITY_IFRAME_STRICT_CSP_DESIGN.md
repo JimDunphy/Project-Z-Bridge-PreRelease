@@ -1,7 +1,7 @@
 # SECURITY: Iframe + Strict CSP Design
 
 Date: 2026-02-27  
-Status: Active design and debugging reference  
+Reference: active design and debugging notes  
 Owner: Bridge/Webclient
 
 Quick sequence view:

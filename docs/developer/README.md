@@ -1,7 +1,6 @@
 # Developer Docs
 
-Status: current developer documentation index. Re-audit when developer docs are
-added, moved, archived, or reclassified.
+Last reviewed: 2026-05-16.
 
 This directory is for **project maintainers** working on the Rust shim and its ZWC compatibility layer.
 
@@ -46,6 +45,7 @@ Start here:
 - [`DEV_SCREENSHOT_CAPTURE_GUIDE.md`](DEV_SCREENSHOT_CAPTURE_GUIDE.md) — workflow and expectations for public/admin UI screenshots (full-context captures, hover states, archive-to-repo copy flow, overwrite rules).
 - [`DEV_WORKDIR.md`](DEV_WORKDIR.md) — what `.dev/` contains and how to clear caches safely.
 - [`DEV_TEST_STRATEGY.md`](DEV_TEST_STRATEGY.md) — unit tests + smoke binaries + recommended E2E checks.
+- [`DEV_DEPENDENCY_MAINTENANCE.md`](DEV_DEPENDENCY_MAINTENANCE.md) — pinned Rust/toolchain policy, crate refresh procedure, `cargo audit`, and verification gate.
 - [`TESTING_AND_MIDDLEWARE_INTEROP.md`](TESTING_AND_MIDDLEWARE_INTEROP.md) — how Rust tests, bridge/API tests, and Playwright tests differ, plus guidance for Zimbra middleware compatibility evaluation.
 - [`DEV_CODE_AUDIT.md`](DEV_CODE_AUDIT.md) — known rough edges, duplication hotspots, and refactor backlog.
 - [`DEV_PUBLISHING.md`](DEV_PUBLISHING.md) — sanitized exports to public repos (publish.json workflow).

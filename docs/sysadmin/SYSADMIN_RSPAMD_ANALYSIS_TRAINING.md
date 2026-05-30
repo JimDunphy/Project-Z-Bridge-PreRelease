@@ -1,7 +1,6 @@
 # Rspamd Analysis and Training Workflow
 
-Status: current operator training runbook. Re-audit after Rspamd badge,
-message-list tooltip, raw-source export, or preference-toggle behavior changes.
+Last reviewed: 2026-05-16.
 
 This guide is for administrators and mail operators using Project Z-Bridge with the classic Zimbra Web Client (ZWC) UI on top of Stalwart.
 

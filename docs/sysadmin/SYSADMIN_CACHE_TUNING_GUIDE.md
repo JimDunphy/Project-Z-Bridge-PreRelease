@@ -1,7 +1,6 @@
 # Cache and Performance Tuning Guide
 
-Status: current operator runbook. Re-audit after `.env.example` cache/default
-changes, push/NoOp behavior changes, or perf-log wording changes.
+Last reviewed: 2026-05-16.
 
 This guide is for operators tuning bridge responsiveness vs upstream load.
 

@@ -1,6 +1,6 @@
 # Deployment / Packaging
 
-Status: current operator deployment notes for local/dev and runtime-image use.
+Last reviewed: 2026-05-16.
 
 This repo includes a development-focused Docker setup (`docker-compose.yml`) that mounts the whole workspace and runs `cargo run`.
 

@@ -1,6 +1,6 @@
 # Project Z-Bridge Onboarding Overview
 
-Status: current high-level orientation. Last doc audit: 2026-05-16.
+Last reviewed: 2026-05-16.
 
 This document is a high-level orientation for management, product, GUI, and new
 technical stakeholders. It explains what Project Z-Bridge is, why the browser

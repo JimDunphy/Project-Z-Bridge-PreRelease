@@ -1,7 +1,6 @@
 # Perf Stats Reference (Sysadmin)
 
-Status: current operator reference for `./manage.sh perf-stats-*` output.
-Re-audit after perf counter schema or command output changes.
+Last reviewed: 2026-05-16.
 
 This guide explains the output of:
 - `./manage.sh perf-stats-show --foreground`
