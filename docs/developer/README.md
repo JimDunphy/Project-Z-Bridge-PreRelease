@@ -1,6 +1,6 @@
 # Developer Docs
 
-Last reviewed: 2026-05-16.
+Last reviewed: 2026-06-06.
 
 This directory is for **project maintainers** working on the Rust shim and its ZWC compatibility layer.
 
@@ -47,6 +47,7 @@ Start here:
 - [`DEV_TEST_STRATEGY.md`](DEV_TEST_STRATEGY.md) — unit tests + smoke binaries + recommended E2E checks.
 - [`DEV_DEPENDENCY_MAINTENANCE.md`](DEV_DEPENDENCY_MAINTENANCE.md) — pinned Rust/toolchain policy, crate refresh procedure, `cargo audit`, and verification gate.
 - [`TESTING_AND_MIDDLEWARE_INTEROP.md`](TESTING_AND_MIDDLEWARE_INTEROP.md) — how Rust tests, bridge/API tests, and Playwright tests differ, plus guidance for Zimbra middleware compatibility evaluation.
+- [`COMPAT_TRACE.md`](COMPAT_TRACE.md) — optional sanitized SOAP/REST compatibility trace, human report, privacy boundary, and partner-evaluation workflow.
 - [`DEV_CODE_AUDIT.md`](DEV_CODE_AUDIT.md) — known rough edges, duplication hotspots, and refactor backlog.
 - [`DEV_PUBLISHING.md`](DEV_PUBLISHING.md) — sanitized exports to public repos (publish.json workflow).
 - [`PERFORMANCE_LOGIN.md`](PERFORMANCE_LOGIN.md) — current login-time cache strategy (contacts, mailboxes, GetInfo, MiniCal, appointment search) plus regression memory.
@@ -88,7 +89,9 @@ Feature areas / deep dives:
 - Extensions
   - [`EXTENSIONS_PLAN.md`](EXTENSIONS_PLAN.md)
   - [`AI_AUTOMATION_EXTENSION_PLAN.md`](AI_AUTOMATION_EXTENSION_PLAN.md)
+  - [`AI_COMPOSE_WORKFLOW.md`](AI_COMPOSE_WORKFLOW.md)
   - [`AI_ORGANIZER_ALGORITHM.md`](AI_ORGANIZER_ALGORITHM.md)
+  - [`AI_RUNNER_PERSISTENT_SESSIONS_DESIGN.md`](AI_RUNNER_PERSISTENT_SESSIONS_DESIGN.md)
 - Calendar
   - [`CALENDAR_INVITES.md`](CALENDAR_INVITES.md) (current RSVP/invite reference)
   - [`CALENDAR_O365_INVITES_RSVP_DEBUG.md`](CALENDAR_O365_INVITES_RSVP_DEBUG.md) (postmortem/debugging memory)

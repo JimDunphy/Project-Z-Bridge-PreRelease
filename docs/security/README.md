@@ -20,6 +20,7 @@ Security docs use explicit `SECURITY_*` filenames.
 - [`SECURITY_SHIM_AUDIT.md`](SECURITY_SHIM_AUDIT.md) — current bridge controls for hostile mail content and web-origin threats.
 - [`SECURITY_STATIC_ZWC_AUDIT.md`](SECURITY_STATIC_ZWC_AUDIT.md) — background scan of inherited classic ZWC client-side constraints.
 - [`SECURITY_MAIL_HTML_ATTACK_SURFACE_ASSESSMENT.md`](SECURITY_MAIL_HTML_ATTACK_SURFACE_ASSESSMENT.md) — inbound HTML email attack-surface model.
+- [`SECURITY_ZIMBRA_10_1_17_REVIEW.md`](SECURITY_ZIMBRA_10_1_17_REVIEW.md) — targeted applicability review for Zimbra 10.1.17 Classic UI security fixes.
 
 ## Designs, Rationale, And Guardrails
 

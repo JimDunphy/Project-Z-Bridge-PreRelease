@@ -33,7 +33,7 @@ Project Z-Bridge is no longer just a login-and-read prototype. Current coverage 
 *   **Mail:** robust day-to-day workflow coverage across reading, search, conversation handling, attachments, image controls, document viewing, and common mailbox actions.
 *   **Calendars:** month/day/list views, reminders, create/edit/delete flows, ICS import/export, calendar shares, and calendar-folder management.
 *   **Contacts:** contact listing, import/export, create/edit/delete, and compose autocomplete.
-*   **Extensions / AI:** a bridge-managed extension model is in place, with per-user enablement and the AI Organizer shipped as the first extension path for future premium and automation features. It includes a policy editor for fine-grained control over AI-assisted actions and supports multiple CLI-based providers, including Codex, Claude, and Gemini.
+*   **Extensions / AI:** a bridge-managed extension model is in place, with per-user enablement for features such as the AI Organizer and AI Compose Assistant. The AI Organizer includes a policy editor for fine-grained control over AI-assisted actions, while compose assistance is suggestion-only and never sends mail. AI provider plumbing supports multiple CLI-based providers, including Codex, Claude, and Gemini.
 *   **Migration / Restore:** `smmailbox` account migration plus bridge-side contacts/calendar/mail import/export paths for staged cutovers and repair workflows.
 *   **Operational Hardening:** broader browser regression coverage now strengthens release confidence as feature breadth increases, helping the product mature without sacrificing stability.
 

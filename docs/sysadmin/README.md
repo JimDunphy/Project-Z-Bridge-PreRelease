@@ -28,6 +28,7 @@ Use explicit `SYSADMIN_*` filenames for operator-focused docs.
 - [`SYSADMIN_ATTACHMENT_SORT_TRIAGE.md`](SYSADMIN_ATTACHMENT_SORT_TRIAGE.md) — quick runbook for paperclip/attachment-sort regressions (log signatures + tuning).
 - [`SYSADMIN_PERF_STATS_REFERENCE.md`](SYSADMIN_PERF_STATS_REFERENCE.md) — field-by-field reference for `./manage.sh perf-stats-*` outputs and interpretation.
 - [`SYSADMIN_CACHE_TUNING_GUIDE.md`](SYSADMIN_CACHE_TUNING_GUIDE.md) — cache/push/prewarm tuning defaults, tradeoffs, and scenario playbooks.
+- [`../developer/COMPAT_TRACE.md`](../developer/COMPAT_TRACE.md) — optional sanitized SOAP/REST compatibility trace and human-readable report for middleware/client evaluation.
 - [`SYSADMIN_BUNDLE_EXPORT_IMPORT.md`](SYSADMIN_BUNDLE_EXPORT_IMPORT.md) — export/import “environment bundles” for moving a working setup between machines/users.
 - [`SYSADMIN_RETENTION_POLICY.md`](SYSADMIN_RETENTION_POLICY.md) — folder retention UI behavior and retention-sweep notes.
 - [`SYSADMIN_EMAILED_CONTACTS_CLEANUP.md`](SYSADMIN_EMAILED_CONTACTS_CLEANUP.md) — bulk-delete/reset Stalwart “Emailed Contacts” address book when it has unexpected volume.

@@ -107,7 +107,7 @@ curl -sS http://127.0.0.1:7777/service/soap \
       "AuthRequest": {
         "_jsns": "urn:zimbraAccount",
         "account": { "by": "name", "_content": "user@example.com" },
-        "password": "secret"
+        "password": { "_content": "secret" }
       }
     }
   }'
@@ -119,9 +119,64 @@ For the current implemented surface, use:
 - [`SOAP_COMPATIBILITY_MATRIX.md`](SOAP_COMPATIBILITY_MATRIX.md)
 - [`API_STUBS.md`](API_STUBS.md)
 
+## Compatibility Trace
+
+For middleware integration work, enable the bridge-side compatibility trace:
+
+```env
+BRIDGE_COMPAT_TRACE_ENABLED=1
+# Optional local developer mode for exact ids, queries, action targets, and filenames.
+#BRIDGE_COMPAT_TRACE_DETAIL=values
+# Optional local-only replay mode for full parsed SOAP request/response JSON.
+#BRIDGE_COMPAT_TRACE_DETAIL=full
+# Optional override; default is ${BRIDGE_DATA_DIR}/compat-trace.jsonl
+BRIDGE_COMPAT_TRACE_PATH=/data/compat-trace.jsonl
+```
+
+The trace is append-only JSONL. It records the observed SOAP/REST endpoint, method name, request shape, compact response shape, HTTP status, SOAP fault flag/code, duration, and payload sizes where available. Human reports render this as `REQ ... -> RESP ...` so a developer can compare what ZWC or middleware asked for against what the bridge returned. Default `shape` mode is sanitized. `values` mode adds exact ids, paths, queries, action targets, filenames, and sampled response ids for local developer correlation. `full` mode adds full parsed SOAP request/response JSON so a developer can edit and replay captured requests with curl. It is intended to answer "what did this client actually send to the bridge, and what did the bridge return?" without requiring raw packet captures.
+
+Human-readable report:
+
+```bash
+./manage.sh compat-trace-show --tail 25
+./manage.sh compat-trace-follow
+./manage.sh compat-trace-clear
+./manage.sh compat-trace-dump
+./manage.sh compat-trace-dump --method AuthRequest --tail 1 --curl
+./manage.sh compat-trace-follow --hide-values
+./manage.sh compat-trace-redact compat-trace.jsonl > compat-trace-public.jsonl
+```
+
+The report is designed for internal debugging and middleware integration. It includes an explanation of what the trace proves, aggregate method counts, fault counts, and a compact recent-calls table. The follow mode prints a near-live one-line feed as requests complete. By default both modes hide `NoOpRequest` heartbeat traffic so real client actions stand out; use `--all` when heartbeat/poll behavior is part of the investigation. Values-mode traces print exact values by default; add `--hide-values` only when you want public-shape-only output. Full-mode traces can be dumped as pretty JSON or curl replay commands with `compat-trace-dump`. The recommended developer loop is `compat-trace-clear`, reproduce one workflow, then `compat-trace-dump` to inspect every full request/response captured for that workflow.
+
+This is also useful as an educational tool. Running
+`./manage.sh compat-trace-follow` beside a browser shows how classic ZWC drives
+login, startup metadata, folder search, message open, actions, contacts,
+calendar, and REST file paths against a mailboxd-shaped backend. That makes it
+easier for middleware developers to compare their client behavior with ZWC
+without starting from raw packet captures or ZWC source. See
+[`COMPAT_TRACE.md`](COMPAT_TRACE.md) for worked `REQ ... -> RESP ...` examples.
+For a new client, start with the `COMPAT_TRACE.md` "First Workflow: Login Then
+Inbox" sequence: prove `AuthRequest`, token reuse, `GetInfoRequest`, and Inbox
+`SearchRequest` before debugging contacts, calendar, or advanced actions.
+
+Trace boundary:
+
+- It never records auth tokens, cookies, passwords, raw request bodies, message bodies, or upload/file content.
+- Default `shape` mode does not record filenames, email addresses, raw ids, private search text, or custom folder names.
+- Explicit `values` mode records those values under `.private` for developer debugging.
+- Explicit `full` mode records full parsed SOAP request/response bodies for local developer replay and may include credentials, auth tokens, message bodies, contacts, calendar data, and other private mailbox content.
+- In default `shape` mode, search queries are reduced to length/token counts plus safe single-folder values such as `in:inbox` or `in:junk`; custom folder names and other query terms are redacted.
+- In `values` mode, exact query strings are printed for local correlation.
+- Batch SOAP traces list the inner method names, not the raw child request bodies.
+
+Use this as an integration discovery tool, not as a formal compatibility guarantee. A method found in the trace still needs source support, direct HTTP/SOAP tests, and documentation before it should be advertised as supported.
+
+For examples and interpretation guidance, see [`COMPAT_TRACE.md`](COMPAT_TRACE.md).
+
 ## SOAP Request Shape Guardrail
 
-Zimbra-compatible clients can express the same user action with different SOAP fields. Classic ZWC, VNCmail, middleware, and direct tests may not send identical payloads even when the visible operation is "open this folder" or "search this list".
+Zimbra-compatible clients can express the same user action with different SOAP fields. Classic ZWC, partner middleware, and direct tests may not send identical payloads even when the visible operation is "open this folder" or "search this list".
 
 When a handler translates a SOAP request into a cached or JMAP-backed operation:
 

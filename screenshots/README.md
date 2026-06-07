@@ -11,6 +11,13 @@ Review any new or updated screenshots before publishing.
 - [AI Organizer full first page](AI-Organizer/overview-full.png)
 - [AI Organizer lower sections](AI-Organizer/bottom.png)
 
+## AI Compose
+- [Compose window with AI button](AI-Compose/compose-ai-button.png)
+- [AI Compose Assistant dialog](AI-Compose/assistant-dialog.png)
+- [AI Compose prompt preview](AI-Compose/debug-ai-text-preview.png)
+- [AI Compose returned suggestions](AI-Compose/ai-result-project-z-bridge.png)
+- [AI Compose two-provider handoff](AI-Compose/two-provider-insert-above-quote.png)
+
 ## Mail
 - [Mail overview](Mail/overview.png)
 - [Mail reading pane](Mail/reading-pane.png)

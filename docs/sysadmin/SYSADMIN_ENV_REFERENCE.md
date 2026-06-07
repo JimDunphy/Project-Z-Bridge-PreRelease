@@ -54,6 +54,28 @@ Common local-development auth variables:
   - Persistent local data/cache directory for the shim.
   - In dev compose this typically points into `.dev/data`.
 
+- `BRIDGE_COMPAT_TRACE_ENABLED`
+  - Optional SOAP/REST compatibility trace for middleware integration debugging.
+  - Default: `0`.
+  - When enabled, the bridge appends JSONL records for observed request shapes, response status, timing, and payload sizes.
+  - Default `shape` detail omits auth tokens, cookies, raw message bodies, upload content, filenames, email addresses, and private search text.
+
+- `BRIDGE_COMPAT_TRACE_DETAIL`
+  - Compatibility trace detail level.
+  - Default: `shape`.
+  - `shape`: sanitized public request shape only.
+  - `values`: adds `containsPrivate=true` and a `.private` object with exact developer-debug values such as ids, folder paths, queries, action targets, and filenames.
+  - `full`: adds full parsed SOAP request/response JSON for local developer replay with `compat-trace-dump`.
+  - `full` mode may include passwords, auth tokens, message bodies, contacts, calendar data, and other private mailbox content. Do not share full traces.
+
+- `BRIDGE_COMPAT_TRACE_PATH`
+  - Optional output path for the compatibility trace.
+  - Default: `${BRIDGE_DATA_DIR}/compat-trace.jsonl`.
+  - Render the trace for humans with `./manage.sh compat-trace-show --tail 25`.
+  - Follow new calls live with `./manage.sh compat-trace-follow`.
+  - Pretty-print full developer replay records with `./manage.sh compat-trace-dump` when `BRIDGE_COMPAT_TRACE_DETAIL=full`.
+  - Redact private detail blocks with `./manage.sh compat-trace-redact`.
+
 - `WEBCLIENT_ROOT`
   - Filesystem path to extracted ZWC assets.
   - Dev default: `../static/zimbra`.
@@ -291,6 +313,9 @@ For filter behavior and tradeoffs, see:
 - `BRIDGE_AI_RUNNER_BIND`
 - `BRIDGE_AI_RUNNER_PORT`
 - `BRIDGE_AI_RUNNER_CONTEXT_DIR`
+- `BRIDGE_AI_RUNNER_COMPOSE_SESSION_DIR`
+- `BRIDGE_AI_RUNNER_COMPOSE_SESSION_TTL_HOURS`
+- `BRIDGE_AI_RUNNER_COMPOSE_HISTORY_LIMIT`
 - `BRIDGE_AI_RUNNER_DEFAULT_TIMEOUT_MS`
 - `BRIDGE_AI_RUNNER_MAX_TIMEOUT_MS`
 - `BRIDGE_AI_RUNNER_ALLOW_PROVIDERS`
@@ -298,6 +323,10 @@ For filter behavior and tradeoffs, see:
 - `BRIDGE_AI_RUNNER_ALLOW_LOCAL_FALLBACK`
 
 These are used for the local AI automation extension and host-side runner integration.
+Compose session variables control the runner-side short-lived workspace used by
+the AI Compose Assistant to let Codex/Claude/Gemini work on the same reply.
+The default session TTL is 24 hours and the default prior-suggestion history
+included in later prompts is 3 records.
 
 ## Developer/debug-only switches
 
